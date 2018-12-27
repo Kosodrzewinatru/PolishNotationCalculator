@@ -15,7 +15,7 @@ namespace Polish_Notation_Calculator
             return Source.Split(' ');
        }
 
-        public string CalcRPN()
+        public string toInfix()
         {
             string[] start = PrepareToGo();
             Stack<string> expression = new Stack<string>();
