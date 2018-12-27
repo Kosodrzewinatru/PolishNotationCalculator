@@ -2,27 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Polish_Notation_Calculator
 {
     public class Calculate
     {
-        public string Source { get; set; }
+       public string Source { get; set; }
 
-        private List<string> PrepareToGo()
+       private string[] PrepareToGo()
+       {
+            return Source.Split(' ');
+       }
+
+        public string CalcRPN()
         {
-            for (int i = 0; i < Source.Count(); i++)
+            string[] start = PrepareToGo();
+            Stack<string> expression = new Stack<string>();
+            for (int i = 0; i < start.Length; i++)
             {
-
+                if (int.TryParse(start[i], out int result) == true)
+                    expression.Push(start[i]);
+                else
+                {
+                    string second = expression.Pop();
+                    string first = expression.Pop();
+                    string combinedElement = "(" + first + start[i] + second + ")";
+                    expression.Push(combinedElement);
+                }
             }
-
-            return new List<string>();
-        }
-
-        public int CalcPN()
-        {
-            List<string> start = PrepareToGo();
-            return new int();
+            return expression.Pop();
         }
     }
 }
