@@ -18,7 +18,7 @@ namespace Polish_Notation_Calculator.Controllers
         public IActionResult Calculate([FromForm] Calculate calculate)
         {
             //char[] result = calculate.PrepareToGo();
-            string infixExpression = calculate.toInfix();
+            string infixExpression = calculate.ToInfix();
             double result = calculate.Calc();
             ViewData["infix"] = infixExpression;
             ViewData["result"] = result;

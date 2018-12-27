@@ -11,7 +11,7 @@ namespace Polish_Notation_Calculator
     {
         public string Source { get; set; }
 
-        public string toInfix()
+        public string ToInfix()
         {
             string[] start = Source.Split(' ');
             Stack<string> expression = new Stack<string>();
@@ -33,7 +33,7 @@ namespace Polish_Notation_Calculator
         public double Calc()
         {
             DataTable dt = new DataTable();
-            return Convert.ToDouble(dt.Compute(toInfix(), ""));
+            return Convert.ToDouble(dt.Compute(ToInfix(), ""));
         }
     }
 }
