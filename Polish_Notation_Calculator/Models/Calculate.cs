@@ -23,7 +23,11 @@ namespace Polish_Notation_Calculator
                 {
                     string second = expression.Pop();
                     string first = expression.Pop();
-                    string combinedElement = "(" + first + start[i] + second + ")";
+                    string combinedElement;
+                    if (start[i] == "+" || start[i] == "-")
+                        combinedElement = "(" + first + start[i] + second + ")";
+                    else
+                        combinedElement = first + start[i] + second;
                     expression.Push(combinedElement);
                 }
             }
