@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Data;
 
 namespace Polish_Notation_Calculator
 {
@@ -32,6 +33,12 @@ namespace Polish_Notation_Calculator
                 }
             }
             return expression.Pop();
+        }
+
+        public double Calc()
+        {
+            DataTable dt = new DataTable();
+            return Convert.ToDouble(dt.Compute(toInfix(), ""));
         }
     }
 }
