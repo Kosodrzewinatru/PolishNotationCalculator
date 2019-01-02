@@ -35,20 +35,19 @@ namespace Polish_Notation_Calculator
             return expression.Pop();
         }
 
-        public string toPrefix()
+        public string toPostfix()
         {
             string[] start = SourceTrue.Split(' ');
             return "2";
-
         }
 
-        public double CalcInfix()
+        public double calcInfix()
         {
             DataTable dt = new DataTable();
             return Convert.ToDouble(dt.Compute(ToInfix(), ""));
         }
 
-        public string CalcPrefix()
+        public string calcPostfix()
         {
             return "2";
         }

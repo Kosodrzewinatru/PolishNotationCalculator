@@ -18,16 +18,17 @@ namespace Polish_Notation_Calculator.Controllers
         public IActionResult Calculate([FromForm] Calculate calculate)
         {
             string infixExpression = calculate.ToInfix();
-            double result = calculate.CalcInfix();
-            ViewData["infix"] = infixExpression;
+            double result = calculate.calcInfix();
+            ViewData["otherFix"] = infixExpression;
             ViewData["result"] = result;
             return View("Result");
         }
 
         public IActionResult CalculateTrue([FromForm] Calculate calculate)
         {
-            string prefixExpression = calculate.toPrefix();
-            string result = calculate.CalcPrefix();
+            string postfixExpression = calculate.toPostfix();
+            string result = calculate.calcPostfix();
+            ViewData["otherFix"] = postfixExpression;
             ViewData["result"] = result;
             return View("Result");
         }

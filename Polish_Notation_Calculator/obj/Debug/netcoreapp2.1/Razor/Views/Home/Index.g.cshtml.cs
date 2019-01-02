@@ -63,7 +63,7 @@ using Polish_Notation_Calculator.Models;
             WriteLiteral("\r\n<h1>Reverse polish notation</h1>\r\n\r\n");
             EndContext();
             BeginContext(83, 147, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "37764510b6844a42aed2cd688c52f8e8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0e7396f379346558dbe780e973ecc3a", async() => {
                 BeginContext(128, 95, true);
                 WriteLiteral("\r\n    <input name=\"Source\" required />\r\n    <input type=\"submit\" value=\"send\" /> <br/> <br />\r\n");
                 EndContext();
@@ -88,7 +88,7 @@ using Polish_Notation_Calculator.Models;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(234, 142, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bcfa4a5ade654fcfb86f5f18fe24995c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5b1686e05fe94cf3b290c51fb5797425", async() => {
                 BeginContext(283, 86, true);
                 WriteLiteral("\r\n    <input name=\"SourceTrue\" required />\r\n    <input type=\"submit\" value=\"send\" />\r\n");
                 EndContext();
