@@ -64,44 +64,34 @@ namespace Polish_Notation_Calculator
             Stack<string> expression = new Stack<string>();
             string finalExpression = "";
             string[] start = SourceTrue.Split(' ');
+            
             for (int i = 0; i < start.Length; i++)
             {
-                if (int.TryParse(start[i], out int result))
-                    finalExpression += start[i] + " ";
-                if (start[i] == "+" || start[i] == "-" || start[i] == "*" || start[i] == "/")
-                {
-                    if (expression.Count == 0 || precedence(start[i]) > precedence(expression.Pop()))
-                        expression.Push(start[i]);
-                    else
-                    {
-                        for (int j = 0; j < expression.Count; j++)
-                        {
-                            if (expression.Pop() == "(" || expression.Pop() == ")")
-                            {
-                                expression.Push(start[i]);
-                                break;
-                            }
+                string curElement = start[i];
 
-                            if (precedence(expression.Pop()) >= precedence(start[i]))
-                                expression.Pop();
-                            else
-                                expression.Push(start[i]);
-                        }
-                    }
-                }
-                if (start[i] == "(")
-                    expression.Push(start[i]);
-                if (start[i] == ")")
+                if (int.TryParse(curElement, out int result))
+                    finalExpression += curElement + " ";
+                else if (curElement == "(")
+                    expression.Push(curElement);
+                else if (curElement == ")")
                 {
-                    for (int j = 0; j < expression.Count; j++)
-                    {
-                        if (expression.Pop() == "(")
-                            break;
-                        else
-                            finalExpression += start[i] + " ";
-                    }
+                    while (expression.Count > 0 && expression.Peek() != "(")
+                        finalExpression += expression.Pop() + " ";
+                    if (expression.Count > 0 && expression.Peek() != "(")
+                        return "Syntax error!";
+                    else
+                        expression.Pop();
+                }
+                else
+                {
+                    while (expression.Count > 0 && precedence(curElement) <= precedence(expression.Peek()))
+                        finalExpression += expression.Pop();
+                    expression.Push(curElement);
                 }
             }
+                    while (expression.Count > 0)
+                        finalExpression += expression.Pop();
+
             return finalExpression;
         }
 
