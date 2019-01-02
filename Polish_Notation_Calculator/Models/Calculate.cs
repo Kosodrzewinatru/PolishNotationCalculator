@@ -10,6 +10,7 @@ namespace Polish_Notation_Calculator
     public class Calculate
     {
         public string Source { get; set; }
+        public string SourceTrue { get; set; }
 
         public string ToInfix()
         {
@@ -34,15 +35,22 @@ namespace Polish_Notation_Calculator
             return expression.Pop();
         }
 
-        public string doInfix()
+        public string toPrefix()
         {
+            string[] start = SourceTrue.Split(' ');
             return "2";
+
         }
 
-        public double Calc()
+        public double CalcInfix()
         {
             DataTable dt = new DataTable();
             return Convert.ToDouble(dt.Compute(ToInfix(), ""));
+        }
+
+        public string CalcPrefix()
+        {
+            return "2";
         }
     }
 }
