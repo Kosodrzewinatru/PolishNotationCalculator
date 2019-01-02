@@ -12,7 +12,7 @@ namespace Polish_Notation_Calculator
         public string Source { get; set; }
         public string SourceTrue { get; set; }
 
-        public string ToInfix()
+        public string toInfix()
         {
             string[] start = Source.Split(' ');
             Stack<string> expression = new Stack<string>();
@@ -33,6 +33,12 @@ namespace Polish_Notation_Calculator
                 }
             }
             return expression.Pop();
+        }
+
+        public double calcInfix()
+        {
+            DataTable dt = new DataTable();
+            return Convert.ToDouble(dt.Compute(toInfix(), ""));
         }
 
         internal static int precedence(string curOperator)
@@ -60,16 +66,45 @@ namespace Polish_Notation_Calculator
             string[] start = SourceTrue.Split(' ');
             for (int i = 0; i < start.Length; i++)
             {
+                if (int.TryParse(start[i], out int result))
+                    finalExpression += start[i] + " ";
+                if (start[i] == "+" || start[i] == "-" || start[i] == "*" || start[i] == "/")
+                {
+                    if (expression.Count == 0 || precedence(start[i]) > precedence(expression.Pop()))
+                        expression.Push(start[i]);
+                    else
+                    {
+                        for (int j = 0; j < expression.Count; j++)
+                        {
+                            if (expression.Pop() == "(" || expression.Pop() == ")")
+                            {
+                                expression.Push(start[i]);
+                                break;
+                            }
 
+                            if (precedence(expression.Pop()) >= precedence(start[i]))
+                                expression.Pop();
+                            else
+                                expression.Push(start[i]);
+                        }
+                    }
+                }
+                if (start[i] == "(")
+                    expression.Push(start[i]);
+                if (start[i] == ")")
+                {
+                    for (int j = 0; j < expression.Count; j++)
+                    {
+                        if (expression.Pop() == "(")
+                            break;
+                        else
+                            finalExpression += start[i] + " ";
+                    }
+                }
             }
             return finalExpression;
         }
 
-        public double calcInfix()
-        {
-            DataTable dt = new DataTable();
-            return Convert.ToDouble(dt.Compute(ToInfix(), ""));
-        }
 
         public string calcPostfix()
         {
