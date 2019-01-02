@@ -11,16 +11,22 @@ namespace Polish_Notation_Calculator.Controllers
     public class HomeController : Controller
     {
         public IActionResult Index()
-        { 
+        {
             return View();
         }
 
         public IActionResult Calculate([FromForm] Calculate calculate)
         {
-            //char[] result = calculate.PrepareToGo();
             string infixExpression = calculate.ToInfix();
             double result = calculate.Calc();
             ViewData["infix"] = infixExpression;
+            ViewData["result"] = result;
+            return View("Result");
+        }
+
+        public IActionResult CalculateTrue([FromForm] Calculate calculate)
+        {
+            string result = calculate.doInfix();
             ViewData["result"] = result;
             return View("Result");
         }

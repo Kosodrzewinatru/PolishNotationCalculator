@@ -34,6 +34,11 @@ namespace Polish_Notation_Calculator
             return expression.Pop();
         }
 
+        public string doInfix()
+        {
+            return "2";
+        }
+
         public double Calc()
         {
             DataTable dt = new DataTable();

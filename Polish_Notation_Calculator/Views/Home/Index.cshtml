@@ -1,13 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    
 }
 
 <h1>Reverse polish notation</h1>
 
 <form method="post" action="/home/calculate">
-    <input name="Source"></input><br/><br/>
-    <input type="submit" value="send" />
+    <input name="Source" required />
+    <input type="submit" value="send" /> <br/> <br />
+</form>
 
+<form action="/home/calculateTrue" method="post">
+    <input name="SourceTrue" required />
+    <input type="submit" value="send" />
 </form>
 
