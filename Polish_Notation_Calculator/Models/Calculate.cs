@@ -35,10 +35,34 @@ namespace Polish_Notation_Calculator
             return expression.Pop();
         }
 
+        internal static int precedence(string curOperator)
+        {
+            switch(curOperator)
+            {
+                case "+":
+                case "-":
+                    return 1;
+
+                case "*":
+                case "/":
+                    return 2;
+
+                case "^":
+                    return 3;
+            }
+            return -1;
+        }
+
         public string toPostfix()
         {
+            Stack<string> expression = new Stack<string>();
+            string finalExpression = "";
             string[] start = SourceTrue.Split(' ');
-            return "2";
+            for (int i = 0; i < start.Length; i++)
+            {
+
+            }
+            return finalExpression;
         }
 
         public double calcInfix()
@@ -49,7 +73,8 @@ namespace Polish_Notation_Calculator
 
         public string calcPostfix()
         {
-            return "2";
+            string result = "";
+            return result;
         }
     }
 }
