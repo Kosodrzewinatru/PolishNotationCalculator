@@ -85,7 +85,7 @@ namespace Polish_Notation_Calculator
                 else
                 {
                     while (expression.Count > 0 && precedence(curElement) <= precedence(expression.Peek()))
-                        finalExpression += expression.Pop();
+                        finalExpression += expression.Pop() + " ";
                     expression.Push(curElement);
                 }
             }
@@ -98,8 +98,38 @@ namespace Polish_Notation_Calculator
 
         public string calcPostfix()
         {
-            string result = "";
-            return result;
+            double result = 0;
+            Stack<string> expression = new Stack<string>();
+            string[] start = toPostfix().Split(' ');
+
+            for (int i = 0; i < start.Length; i++)
+            {
+                string curElement = start[i];
+                if (int.TryParse(curElement, out int res))
+                    expression.Push(curElement);
+                else if (expression.Count >= 2)
+                {
+                    double second = Convert.ToDouble(expression.Pop());
+                    double first = Convert.ToDouble(expression.Pop());
+
+                    if (curElement == "+")
+                        expression.Push(Convert.ToString(first + second));
+                    if (curElement == "-")
+                        expression.Push(Convert.ToString(first - second));
+                    if (curElement == "*")
+                        expression.Push(Convert.ToString(first * second));
+                    if (curElement == "/")
+                        expression.Push(Convert.ToString(first / second));
+                    if (curElement == "^")
+                        expression.Push(Convert.ToString(Math.Pow(first, second)));
+                }
+
+                if (i == start.Length - 1)
+                {
+                    result = Convert.ToDouble(expression.Pop()); 
+                }
+            }
+            return Convert.ToString(result);
         }
     }
 }
