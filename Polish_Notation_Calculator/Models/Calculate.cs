@@ -90,7 +90,7 @@ namespace Polish_Notation_Calculator
                 }
             }
                     while (expression.Count > 0)
-                        finalExpression += expression.Pop();
+                        finalExpression += expression.Pop() + " ";
 
             return finalExpression;
         }
