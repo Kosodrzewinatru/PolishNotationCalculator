@@ -32,16 +32,13 @@ namespace Polish_Notation_Calculator.Controllers
             ViewData["result"] = result;
             return View("Index");
         }
-        /*
-        public IActionResult Clear(Calculate calculate)
+
+        public IActionResult Clear()
         {
-            string infixExpression = calculate.toInfix();
-            double result = calculate.calcInfix();
-            ViewData["otherFix"] = infixExpression;
-            ViewData["result"] = result;
+            ViewData["otherFix"] = "";
+            ViewData["result"] = "";
             return View("Index");
         }
-        */
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
