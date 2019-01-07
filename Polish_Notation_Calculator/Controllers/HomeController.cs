@@ -15,22 +15,38 @@ namespace Polish_Notation_Calculator.Controllers
             return View();
         }
 
-        public IActionResult Calculate([FromForm] Calculate calculate)
+        public IActionResult Calculate([FromForm] Calculate calculate, Check check)
         {
-            string infixExpression = calculate.toInfix();
-            double result = calculate.calcInfix();
-            ViewData["otherFix"] = infixExpression;
-            ViewData["result"] = result;
-            return View("Index");
+            if (check.ifLetter())
+            {
+                string infixExpression = calculate.toInfix();
+                double result = calculate.calcInfix();
+                ViewData["otherFix"] = "Expression: " + infixExpression;
+                ViewData["result"] = "Result: " + result;
+                return View("Index");
+            }
+            else
+            {
+                ViewData["error"] = "Error! Letters are not allowed!";
+                return View("Index");
+            }
         }
 
-        public IActionResult CalculateTrue([FromForm] Calculate calculate)
+        public IActionResult CalculateTrue([FromForm] Calculate calculate, Check check)
         {
-            string postfixExpression = calculate.toPostfix();
-            string result = calculate.calcPostfix();
-            ViewData["otherFix"] = postfixExpression;
-            ViewData["result"] = result;
-            return View("Index");
+            if (check.ifLetterTrue())
+            {
+                string postfixExpression = calculate.toPostfix();
+                string result = calculate.calcPostfix();
+                ViewData["otherFix"] = "Expression: " + postfixExpression;
+                ViewData["result"] = "Result: " + result;
+                return View("Index");
+            }
+            else
+            {
+                ViewData["error"] = "Error! Letters are not allowed!";
+                return View("Index");
+            }
         }
 
         public IActionResult Clear()
@@ -39,6 +55,7 @@ namespace Polish_Notation_Calculator.Controllers
             ViewData["result"] = "";
             return View("Index");
         }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
