@@ -6,7 +6,7 @@
 
 <form method="post" action="/home/calculate">
     Postfix to infix: <input name="Source" required />
-    <input type="submit" value="send" />* <br/> <br />
+    <input type="submit" value="send" />* <br /> <br />
 </form>
 
 <form action="/home/calculateTrue" method="post">
@@ -14,6 +14,15 @@
     <input type="submit" value="send" />* <br />
 </form>
 
-*There has to be space between each character (parentheses too)! 
+*There has to be space between each character (parentheses too)! <br /><br />
+
+Expression:
+@ViewData["otherFix"]
+<br /><br />
+Result:
+@ViewData["result"]
+<br /><br />
+
+<input type="submit" value="clear" />
 
 

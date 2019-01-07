@@ -21,7 +21,7 @@ namespace Polish_Notation_Calculator.Controllers
             double result = calculate.calcInfix();
             ViewData["otherFix"] = infixExpression;
             ViewData["result"] = result;
-            return View("Result");
+            return View("Index");
         }
 
         public IActionResult CalculateTrue([FromForm] Calculate calculate)
@@ -30,9 +30,18 @@ namespace Polish_Notation_Calculator.Controllers
             string result = calculate.calcPostfix();
             ViewData["otherFix"] = postfixExpression;
             ViewData["result"] = result;
-            return View("Result");
+            return View("Index");
         }
-
+        /*
+        public IActionResult Clear(Calculate calculate)
+        {
+            string infixExpression = calculate.toInfix();
+            double result = calculate.calcInfix();
+            ViewData["otherFix"] = infixExpression;
+            ViewData["result"] = result;
+            return View("Index");
+        }
+        */
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
