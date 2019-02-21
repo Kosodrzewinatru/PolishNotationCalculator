@@ -20,7 +20,7 @@ namespace Polish_Notation_Calculator
             {
                 if (int.TryParse(start[i], out int result) == true)
                     expression.Push(start[i]);
-                else
+                else if (start[i] == "+" || start[i] == "-" || start[i] == "/" || start[i] == "*" || start[i] == "^")
                 {
                     string second = expression.Pop();
                     string first = expression.Pop();
@@ -31,6 +31,8 @@ namespace Polish_Notation_Calculator
                         combinedElement = first + start[i] + second;
                     expression.Push(combinedElement);
                 }
+                else
+                    return "Wrong expression! Type again.";
             }
             return expression.Pop();
         }
