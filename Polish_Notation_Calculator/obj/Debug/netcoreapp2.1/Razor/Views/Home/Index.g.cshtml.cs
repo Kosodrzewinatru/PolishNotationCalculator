@@ -64,7 +64,7 @@ using Polish_Notation_Calculator.Models;
             WriteLiteral("\r\n<h1>Reverse polish notation</h1>\r\n\r\n");
             EndContext();
             BeginContext(83, 167, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "401502a0d49541d491867285d2d0af67", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cbb2e692588c4a0294ad7bb2edaac0d0", async() => {
                 BeginContext(128, 115, true);
                 WriteLiteral("\r\n    Postfix to infix: <input name=\"Source\" required />\r\n    <input type=\"submit\" value=\"send\" />* <br /> <br />\r\n");
                 EndContext();
@@ -89,7 +89,7 @@ using Polish_Notation_Calculator.Models;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(254, 168, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eeef1ad124214189b0d27df87d817540", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9bf2fb0fbaf49a4bd28a0f10aff789d", async() => {
                 BeginContext(303, 112, true);
                 WriteLiteral("\r\n    Infix to postfix: <input name=\"SourceTrue\" required />\r\n    <input type=\"submit\" value=\"send\" />* <br />\r\n");
                 EndContext();
@@ -144,7 +144,7 @@ Write(ViewData["error"]);
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(601, 93, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9f6fc408be834453a420cf3c48ff61e0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e41c2d9a6bd34e379db6c678da61dd85", async() => {
                 BeginContext(642, 45, true);
                 WriteLiteral("\r\n    <input type=\"submit\" value=\"clear\" />\r\n");
                 EndContext();
